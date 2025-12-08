@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Message from "./Message";
+import Message from "./pages/Message";
 
 export default function ChatBox({ socket, messages, username }) {
     const [input, setInput] = useState("");
