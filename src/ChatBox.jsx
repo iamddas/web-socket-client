@@ -1,5 +1,7 @@
 import { useState } from "react";
 import Message from "./pages/Message";
+import {Input} from "reactstrap";
+import SubmitBtn from "./components/utils/SubmitBtn";
 
 export default function ChatBox({ socket, messages, username }) {
     const [input, setInput] = useState("");
@@ -32,15 +34,13 @@ export default function ChatBox({ socket, messages, username }) {
             </div>
 
             <div style={styles.inputRow}>
-                <input
+                <Input
                     style={styles.input}
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
                     placeholder="Type message..."
                 />
-                <button style={styles.button} onClick={sendMessage}>
-                    Send
-                </button>
+                <SubmitBtn style={styles.button} onClick={sendMessage} label={'Send'}/>
             </div>
         </div>
     );

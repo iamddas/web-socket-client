@@ -3,6 +3,9 @@ import RoomsList from "./components/RoomsList";
 import UsersList from "./components/UsersList";
 import MessageList from "./components/MessageList";
 import MessageInput from "./components/MessageInput";
+import SubmitBtn from "./components/utils/SubmitBtn";
+import {Badge, Button, Card, CardBody, CardText, CardTitle, Col, Row} from "reactstrap";
+import ProfileCard from "./components/ProfileCard";
 
 export default function ChatLayout({ username, ws, setWs }) {
     const [connected, setConnected] = useState(false);
@@ -110,17 +113,28 @@ export default function ChatLayout({ username, ws, setWs }) {
     return (
         <div className={darkPref.current ? "app dark" : "app"}>
             <div className="sidebar">
-                <div className="userHeader">
-                    <div>Signed in as <strong>{username}</strong></div>
-                    <button onClick={() => { darkPref.current = !darkPref.current; setTimeout(()=>{},0); document.body.classList.toggle('dark'); }}>Toggle Dark</button>
-                </div>
+                <ProfileCard
+                    username={username}
+                    connected={connected}
+                    roomsCount={rooms.length}
+                    usersCount={users.length}
+                    onNewDM={() => setDmTarget(null)}
+                    onToggleDark={() => { darkPref.current = !darkPref.current; document.body.classList.toggle('dark'); }}
+                />
 
                 <RoomsList rooms={rooms} current={currentRoom} onJoin={handleJoinRoom} onCreate={handleCreateRoom} />
-                <UsersList users={users} onStartDM={(u)=>setDmTarget(u)} />
+                <UsersList users={users} onStartDM={(u) => setDmTarget(u)} />
             </div>
 
             <div className="main">
-                <h3>{ dmTarget ? `DM with ${dmTarget}` : `Room: ${currentRoom}` }</h3>
+                <Row>
+                    <Col md={8}>
+                        <h3>{ dmTarget ? `DM with ${dmTarget}` : `Room: ${currentRoom}` }</h3>
+                    </Col>
+                    <Col md={4}>
+                        {/*<SubmitBtn onClick={() => { darkPref.current = !darkPref.current; setTimeout(()=>{},0); document.body.classList.toggle('dark'); }} label={'Toggle Dark'}></SubmitBtn>*/}
+                    </Col>
+                </Row>
                 <MessageList messages={messages} typingMap={typingMap} />
                 <MessageInput onSend={handleSendMessage} onTyping={handleTyping} />
             </div>

@@ -1,24 +1,152 @@
-:root{
-    --bg:#f4f6f8; --panel:#fff; --text:#111;
+:root {
+    --bg: #f4f6f8;
+    --panel: #fff;
+    --text: #111;
 }
-body { margin:0; font-family: Arial, Helvetica, sans-serif; background:var(--bg); color:var(--text); }
-.app { display:flex; height:100vh; }
-.sidebar { width:260px; padding:12px; background:var(--panel); border-right:1px solid #eee; box-sizing:border-box; }
-.main { flex:1; padding:12px; display:flex; flex-direction:column; }
-.panel { margin-bottom:12px; }
-.rooms, .users { list-style:none; padding:0; margin:0}
-.rooms li button, .users li button { width:100%; text-align:left; padding:6px; border:0; background:transparent; cursor:pointer; }
-.rooms li.active button { font-weight:bold; }
-.messages { flex:1; overflow:auto; border:1px solid #eee; padding:8px; background:#fff; margin-bottom:8px; border-radius:4px }
-.msg { padding:6px 0; }
-.system { color:#666; font-style:italic; padding:6px 0; }
-.dm { background:#eef; padding:6px; border-radius:4px; margin:4px 0; }
-.inputRow { display:flex; gap:8px; }
-.inputRow input { flex:1; padding:8px; }
-.center { display:flex; align-items:center; justify-content:center; height:100vh; }
-.card { padding:20px; background:#fff; border-radius:6px; box-shadow:0 2px 8px rgba(0,0,0,0.06); text-align:center; }
-.app.dark { --bg:#0f1720; --panel:#0b1220; --text:#e6eef8; }
-.app.dark .messages { background:#071129; color:#cfe7ff; }
-button { padding:8px 10px; background:#1976d2; color: #020202; border:0; border-radius:4px; cursor:pointer; }
-button:disabled { opacity:0.4; cursor:not-allowed }
-.userHeader { margin-bottom:12px; display:flex; justify-content:space-between; align-items:center; gap:8px; }
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+}
+
+.app {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 260px;
+    padding: 12px;
+    background: var(--panel);
+    border-right: 1px solid #eee;
+    box-sizing: border-box;
+}
+
+.main {
+    flex: 1;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+}
+
+.panel {
+    margin-bottom: 12px;
+}
+
+.rooms, .users {
+    list-style: none;
+    padding: 0;
+    margin: 0
+}
+
+.rooms li button, .users li button {
+    width: 100%;
+    text-align: left;
+    padding: 6px;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+}
+
+.rooms li.active button {
+    font-weight: bold;
+}
+
+.messages {
+    flex: 1;
+    overflow: auto;
+    border: 1px solid #eee;
+    padding: 8px;
+    background: #fff;
+    margin-bottom: 8px;
+    border-radius: 4px
+}
+
+.msg {
+    padding: 6px 0;
+}
+
+.system {
+    color: #666;
+    font-style: italic;
+    padding: 6px 0;
+}
+
+.dm {
+    background: #eef;
+    padding: 6px;
+    border-radius: 4px;
+    margin: 4px 0;
+}
+
+.inputRow {
+    display: flex;
+    gap: 8px;
+}
+
+.inputRow input {
+    flex: 1;
+    padding: 8px;
+}
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.card {
+    padding: 20px;
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    text-align: center;
+}
+
+.app.dark {
+    --bg: #0f1720;
+    --panel: #0b1220;
+    --text: #e6eef8;
+}
+
+.app.dark .messages {
+    background: #071129;
+    color: #cfe7ff;
+}
+
+button {
+    padding: 8px 10px;
+    background: #1976d2;
+    color: #020202;
+    border: 0;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed
+}
+
+.userHeader {
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+}
+
+.avatar{
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #1976d2;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}

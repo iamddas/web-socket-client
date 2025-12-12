@@ -1,4 +1,6 @@
 import { useState } from "react";
+import {Input} from "reactstrap";
+import SubmitBtn from "../components/utils/SubmitBtn";
 
 export default function Login({ onLogin, setWs }) {
     const [name, setName] = useState("");
@@ -17,8 +19,8 @@ export default function Login({ onLogin, setWs }) {
         <div className="center">
             <div className="card">
                 <h2>Enter your name</h2>
-                <input value={name} onChange={(e) => setName(e.target.value)} placeholder="Your display name" />
-                <button onClick={handleLogin} disabled={!name.trim()}>Join Chat</button>
+                <Input value={name} onChange={(e) => setName(e.target.value)} placeholder="Your display name" />
+                <SubmitBtn onClick={handleLogin} disabled={!name.trim()}>Join Chat</SubmitBtn>
             </div>
         </div>
     );
